@@ -8,14 +8,26 @@ def find_anagrams(letters, words):
     :param words: A set of lowercase, alphabetic English words in a word bank.
     :return: A set of anagrams of the given letters found in the word bank.
     """
-    #### ADD YOUR CODE BELOW ####
+    """Check canonical representation"""
+    canonical = "".join(sorted(letters))
 
+    """Create hash map from word bank"""
+    d = dict()
 
-    #### ADD YOUR CODE ABOVE ####
+    for word in words:
+        canonic = "".join(sorted(word))
+
+        if canonic not in d:
+            d[canonic] = set()
+        d[canonic].add(word)
+
+    return d.get(canonical, set())
 
 
 if __name__ == '__main__':
     while True:
         letters = input("What letters would you like to find the anagram of? ").lower().strip()
+        # r = find_anagrams(canonical, english_words_small)
+        # print(r)
         for anagram in find_anagrams(letters, english_words_small):
             print(anagram)
