@@ -37,9 +37,13 @@ def make_tree(words):
     return trie
 
 
-# solution by a teacher
+# solution by a teacher - advanced
 def predict(tree, numbers):
     """
+    Pseudo code:
+    1. Find the internal nodes corresponding to the user's supplied letters.
+    2. Build a collection of all of the words that could be built starting from any of those internal nodes.
+    3. Sort the possible words by their frequency.
 
     :param tree:
     :param numbers:
